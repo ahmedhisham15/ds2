@@ -318,7 +318,344 @@ A->next = prev;
     { q: "Given: Node* t = temp->next; t->next = temp; 👉 Result?", c: ["cycle of 2", "reverse", "NULL", "safe"], a: 0 },
     { q: "Given: while(temp){ if(temp->next == NULL) break; temp = temp->next; } 👉 Ends at?", c: ["head", "tail", "middle", "NULL"], a: 1 },
     { q: "Given: t=temp->next; temp->next=NULL; t->next=temp; 👉 Result?", c: ["reverse first 2", "cycle", "NULL", "safe"], a: 0 },
-    { q: "Given: while(fast && fast->next){ temp=temp->next; fast=fast->next->next; } 👉 Gives?", c: ["start", "middle", "end", "NULL"], a: 1 }
+    { q: "Given: while(fast && fast->next){ temp=temp->next; fast=fast->next->next; } 👉 Gives?", c: ["start", "middle", "end", "NULL"], a: 1 },
+
+
+    { q: "Nodes in full binary tree of height 2?", c: ["3", "7", "5", "6"], a: 1 },
+    { q: "Max children in binary tree?", c: ["1", "2", "3", "∞"], a: 1 },
+    { q: "Node with no children?", c: ["root", "leaf", "parent", "internal"], a: 1 },
+    { q: "Height of 1 node tree?", c: ["0", "1", "2", "-1"], a: 0 },
+    { q: "Worst BST becomes?", c: ["balanced", "LL", "heap", "graph"], a: 1 },
+    { q: "Edges in n nodes tree?", c: ["n", "n-1", "n+1", "2n"], a: 1 },
+    { q: "Root node?", c: ["last", "first", "middle", "leaf"], a: 1 },
+    { q: "Internal node?", c: ["no child", "has child", "root only", "none"], a: 1 },
+    { q: "Binary tree type?", c: ["linear", "hierarchy", "circular", "array"], a: 1 },
+    { q: "BST rule?", c: ["L>R", "R<L", "L<R<Root", "L<Root<R"], a: 3 },
+
+    // 🔥 11–20 TRAVERSAL (TREES)
+
+    { q: `Tree:
+    2
+   / \\
+  1   3
+Inorder?`, c: ["2 1 3", "1 2 3", "3 2 1", "1 3 2"], a: 1 },
+
+    { q: "Same tree preorder?", c: ["1 2 3", "2 1 3", "3 2 1", "1 3 2"], a: 1 },
+
+    { q: "Same tree postorder?", c: ["1 3 2", "2 1 3", "3 2 1", "1 2 3"], a: 0 },
+
+    { q: `Tree:
+      4
+     / \\
+    2   6
+Inorder?`, c: ["2 4 6", "4 2 6", "6 4 2", "2 6 4"], a: 0 },
+
+    { q: "Same tree preorder?", c: ["2 4 6", "4 2 6", "6 4 2", "2 6 4"], a: 1 },
+
+    { q: "Same tree postorder?", c: ["2 6 4", "4 2 6", "6 2 4", "2 4 6"], a: 0 },
+
+    { q: `Tree:
+        5
+       / \\
+      3   7
+     / \\
+    2   4
+Inorder?`, c: ["2 3 4 5 7", "5 3 2 4 7", "2 4 3 5 7", "7 5 4 3 2"], a: 0 },
+
+    { q: "Same tree preorder?", c: ["5 3 2 4 7", "2 3 4 5 7", "5 7 3 2 4", "3 5 2 4 7"], a: 0 },
+
+    { q: "Same tree postorder?", c: ["2 4 3 7 5", "5 3 2 4 7", "7 5 4 3 2", "2 3 4 7 5"], a: 0 },
+
+    { q: `Tree:
+    1
+     \\
+      2
+       \\
+        3
+Preorder?`, c: ["1 2 3", "3 2 1", "2 1 3", "1 3 2"], a: 0 },
+
+    // 💀 21–50 BIG CODE
+
+    { q: `Code:
+left-root-right
+👉 Type?`, c: ["inorder", "preorder", "postorder", "none"], a: 0 },
+
+    { q: `Code:
+root-left-right
+👉 Type?`, c: ["inorder", "preorder", "postorder", "reverse"], a: 1 },
+
+    { q: `Code:
+left-right-root
+👉 Type?`, c: ["inorder", "preorder", "postorder", "BFS"], a: 2 },
+
+    { q: `Code:
+root-right-left
+👉 Type?`, c: ["reverse preorder", "inorder", "post", "none"], a: 0 },
+
+    { q: `Code:
+right-root-left
+👉 Meaning?`, c: ["reverse inorder", "pre", "post", "none"], a: 0 },
+
+    { q: `Call left twice:
+👉 Result?`, c: ["normal", "duplicate", "skip", "error"], a: 1 },
+
+    { q: `Missing right recursion:
+👉 Issue?`, c: ["skip right", "loop", "safe", "none"], a: 0 },
+
+    { q: `Print twice:
+👉 Result?`, c: ["double print", "reverse", "skip", "error"], a: 0 },
+
+    { q: "Inorder pattern?", c: ["LNR", "NLR", "LRN", "RNL"], a: 0 },
+
+    { q: "Preorder pattern?", c: ["LNR", "NLR", "LRN", "RNL"], a: 1 },
+
+    { q: "Postorder pattern?", c: ["LNR", "NLR", "LRN", "RNL"], a: 2 },
+
+    { q: "Iterative inorder uses?", c: ["queue", "stack", "heap", "tree"], a: 1 },
+
+    { q: "Iterative preorder uses?", c: ["queue", "stack", "array", "none"], a: 1 },
+
+    { q: "Postorder hardest because?", c: ["2 stacks", "1 loop", "no recursion", "easy"], a: 0 },
+
+    { q: `Tree sorted output uses?`, c: ["pre", "post", "in", "level"], a: 2 },
+
+    { q: "Even nodes printing?", c: ["if condition", "delete", "sort", "none"], a: 0 },
+
+    { q: "Leaf check?", c: ["L==R==NULL", "root==NULL", "data==0", "none"], a: 0 },
+
+    { q: "Internal node?", c: ["has child", "no child", "root only", "none"], a: 0 },
+
+    { q: "Count nodes?", c: ["+1", "skip", "divide", "none"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    f(root->left);
+    cout << root->data;
+    f(root->right);
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 What is output?`,
+c: ["1 2 3", "2 1 3", "3 2 1", "1 3 2"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    cout << root->data;
+    f(root->left);
+    f(root->right);
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 Output?`,
+c: ["2 1 3", "1 2 3", "3 2 1", "1 3 2"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    f(root->left);
+    f(root->right);
+    cout << root->data;
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 Output?`,
+c: ["1 3 2", "2 1 3", "3 2 1", "1 2 3"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    cout << root->data;
+    f(root->right);
+    f(root->left);
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 Output?`,
+c: ["2 3 1", "2 1 3", "1 2 3", "3 2 1"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    f(root->right);
+    cout << root->data;
+    f(root->left);
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 Output?`,
+c: ["3 2 1", "1 2 3", "2 3 1", "3 1 2"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    f(root->left);
+    cout << root->data;
+    f(root->left);
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 Output?`,
+c: ["1 2 1", "1 1 2", "2 1 1", "error"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    cout << root->data;
+    f(root->left);
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 What happens?`,
+c: ["2 1", "2 1 3", "1 2 3", "error"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    f(root->left);
+    cout << root->data;
+    f(root->right);
+    cout << root->data;
+}
+Tree:
+    2
+   / \\
+  1   3
+
+👉 Output?`,
+c: ["1 2 2 3 3", "1 2 3 2 3", "1 2 3", "2 1 3"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    cout << root->data;
+    if(root->left) f(root->left);
+    if(root->right) f(root->right);
+}
+Tree:
+    4
+   / \\
+  2   6
+ / \\
+1   3
+
+👉 Output?`,
+c: ["4 2 1 3 6", "1 2 3 4 6", "4 6 2 1 3", "2 1 3 4 6"], a: 0 },
+
+{ q: `Code:
+void f(Node* root){
+    if(root == NULL) return;
+    if(root->left) f(root->left);
+    cout << root->data;
+    if(root->right) f(root->right);
+}
+Tree:
+    4
+   / \\
+  2   6
+ / \\
+1   3
+
+👉 Output?`,
+c: ["1 2 3 4 6", "4 2 1 3 6", "1 3 2 4 6", "6 4 2 1 3"], a: 0 },
+
+// 🔥 HARDER LOGIC BELOW
+
+{ q: `Write recursive inorder traversal code.`,
+c: ["LNR", "NLR", "LRN", "none"], a: 0 },
+
+{ q: `Write recursive preorder traversal code.`,
+c: ["LNR", "NLR", "LRN", "none"], a: 1 },
+
+{ q: `Write recursive postorder traversal code.`,
+c: ["LNR", "NLR", "LRN", "none"], a: 2 },
+
+{ q: `Which traversal prints sorted BST?`,
+c: ["pre", "post", "in", "level"], a: 2 },
+
+{ q: `Which traversal deletes tree safely?`,
+c: ["pre", "post", "in", "level"], a: 1 },
+
+{ q: `Iterative inorder uses?`,
+c: ["queue", "stack", "array", "heap"], a: 1 },
+
+{ q: `Iterative preorder uses?`,
+c: ["queue", "stack", "array", "heap"], a: 1 },
+
+{ q: `Postorder iterative needs?`,
+c: ["2 stacks", "1 stack", "queue", "none"], a: 0 },
+
+{ q: `Traversal complexity?`,
+c: ["O(n)", "O(log n)", "O(1)", "O(n^2)"], a: 0 },
+
+{ q: `Skewed tree traversal?`,
+c: ["O(n)", "O(log n)", "O(1)", "O(n^2)"], a: 0 },
+
+{ q: `Reverse inorder gives?`,
+c: ["descending", "ascending", "random", "none"], a: 0 },
+
+{ q: `Leaf node condition?`,
+c: ["L==R==NULL", "root==NULL", "data==0", "none"], a: 0 },
+
+{ q: `Internal node condition?`,
+c: ["has child", "no child", "root only", "none"], a: 0 },
+
+{ q: `Count nodes logic?`,
+c: ["+1 each node", "skip", "divide", "none"], a: 0 },
+
+{ q: `Height logic?`,
+c: ["1+max", "sum", "count", "none"], a: 0 },
+
+{ q: `Nodes at level k?`,
+c: ["track depth", "skip", "random", "none"], a: 0 },
+
+{ q: `Compare trees?`,
+c: ["data+structure", "data only", "size", "none"], a: 0 },
+
+{ q: `Build tree from inorder+preorder root?`,
+c: ["preorder", "inorder", "postorder", "none"], a: 0 },
+
+{ q: `Build tree from inorder+postorder root?`,
+c: ["postorder", "inorder", "preorder", "none"], a: 0 },
+
+{ q: `FINAL:
+void f(Node* root){
+ if(root==NULL) return;
+ f(root->left);
+ cout<<root->data;
+ f(root->right);
+ cout<<root->data;
+}
+Tree:
+ 2
+/ \\
+1  3
+
+👉 Output?`,
+c: ["1 2 2 3 3", "1 2 3 2 3", "1 2 3", "2 1 3"], a: 1 }
+
 ];
 
 let score = 0;
