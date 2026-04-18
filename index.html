@@ -654,7 +654,246 @@ Tree:
 1  3
 
 👉 Output?`,
-c: ["1 2 2 3 3", "1 2 3 2 3", "1 2 3", "2 1 3"], a: 1 }
+c: ["1 2 2 3 3", "1 2 3 2 3", "1 2 3", "2 1 3"], a: 1 },
+
+    
+/* =========================
+   🔗 LINKED LIST (1–5)
+========================= */
+
+{ q: `LL Q1: Arrange to reverse linked list
+
+A) temp = next;
+B) Node* next = temp->next;
+C) prev = temp;
+D) temp->next = prev;
+E) while(temp != NULL)
+
+👉 Correct order?`,
+c: [
+"A B C D E",
+"E B D C A",
+"E B D C A",
+"E B D C A (loop form)"
+], a: 3 },
+
+{ q: `LL Q2: Arrange to insert at beginning
+
+A) Node* newNode = new Node(x);
+B) newNode->next = head;
+C) return newNode;
+D) head = newNode;
+
+👉 Correct order?`,
+c: [
+"A B D C",
+"A D B C",
+"D A B C",
+"A B C D"
+], a: 0 },
+
+{ q: `LL Q3: Arrange to delete head
+
+A) Node* temp = head;
+B) head = head->next;
+C) delete temp;
+D) return head;
+
+👉 Correct order?`,
+c: [
+"A B C D",
+"B A C D",
+"A C B D",
+"B C A D"
+], a: 0 },
+
+{ q: `LL Q4: Arrange to traverse list
+
+A) Node* temp = head;
+B) while(temp != NULL)
+C) temp = temp->next;
+D) cout << temp->data;
+
+👉 Correct order?`,
+c: [
+"A B D C",
+"B A D C",
+"A D B C",
+"A B C D"
+], a: 0 },
+
+{ q: `LL Q5: Arrange to find length
+
+A) count++;
+B) Node* temp = head;
+C) while(temp != NULL)
+D) temp = temp->next;
+
+👉 Correct order?`,
+c: [
+"B C A D",
+"C B A D",
+"B A C D",
+"B C D A"
+], a: 0 },
+
+
+/* =========================
+   🔗 DOUBLY LINKED LIST (6–10)
+========================= */
+
+{ q: `DLL Q6: Insert at beginning
+
+A) newNode->next = head;
+B) Node* newNode = new Node(x);
+C) head->prev = newNode;
+D) return newNode;
+
+👉 Correct order?`,
+c: [
+"B A C D",
+"A B C D",
+"B C A D",
+"B A D C"
+], a: 0 },
+
+{ q: `DLL Q7: Delete node in middle
+
+A) temp->prev->next = temp->next;
+B) delete temp;
+C) temp->next->prev = temp->prev;
+
+👉 Correct order?`,
+c: [
+"A C B",
+"C A B",
+"B A C",
+"A B C"
+], a: 0 },
+
+{ q: `DLL Q8: Traverse forward
+
+A) Node* temp = head;
+B) while(temp != NULL)
+C) cout << temp->data;
+D) temp = temp->next;
+
+👉 Correct order?`,
+c: [
+"A B C D",
+"B A C D",
+"A C B D",
+"A B D C"
+], a: 0 },
+
+{ q: `DLL Q9: Traverse backward
+
+A) Node* temp = tail;
+B) while(temp != NULL)
+C) cout << temp->data;
+D) temp = temp->prev;
+
+👉 Correct order?`,
+c: [
+"A B C D",
+"B A C D",
+"A C B D",
+"A B D C"
+], a: 0 },
+
+{ q: `DLL Q10: Make circular DLL
+
+A) tail->next = head;
+B) head->prev = tail;
+
+👉 Correct order?`,
+c: [
+"A B",
+"B A",
+"A only",
+"B only"
+], a: 0 },
+
+
+/* =========================
+   🌳 BINARY TREE (11–15)
+========================= */
+
+{ q: `BT Q11: Inorder traversal
+
+A) f(root->right);
+B) f(root->left);
+C) cout << root->data;
+D) if(root == NULL) return;
+
+👉 Correct order?`,
+c: [
+"D B C A",
+"D C B A",
+"B D C A",
+"D B A C"
+], a: 0 },
+
+{ q: `BT Q12: Preorder traversal
+
+A) f(root->right);
+B) f(root->left);
+C) cout << root->data;
+D) if(root == NULL) return;
+
+👉 Correct order?`,
+c: [
+"D C B A",
+"D B C A",
+"D B A C",
+"C D B A"
+], a: 0 },
+
+{ q: `BT Q13: Postorder traversal
+
+A) f(root->right);
+B) f(root->left);
+C) cout << root->data;
+D) if(root == NULL) return;
+
+👉 Correct order?`,
+c: [
+"D B A C",
+"D C B A",
+"D B C A",
+"B D A C"
+], a: 0 },
+
+{ q: `BT Q14: Height function
+
+A) return 1 + max(left, right);
+B) int left = f(root->left);
+C) int right = f(root->right);
+D) if(root == NULL) return 0;
+
+👉 Correct order?`,
+c: [
+"D B C A",
+"B C D A",
+"D C B A",
+"D A B C"
+], a: 0 },
+
+{ q: `BT Q15: Count nodes
+
+A) return left + right + 1;
+B) int left = f(root->left);
+C) int right = f(root->right);
+D) if(root == NULL) return 0;
+
+👉 Correct order?`,
+c: [
+"D B C A",
+"B C D A",
+"D C B A",
+"D A B C"
+], a: 0 }
+
 
 ];
 
